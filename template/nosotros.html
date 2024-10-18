@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" lang="en>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine a tu alcance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/estilos.css') }}">
+</head>
+<body>
+      
+        <nav class="menu">
+            <ul>
+                <h1 style="position: center; color: aliceblue;" >El cine a tu alcance</h1>
+                <br>
+                <br>
+                <li><a href="{{ url_for('home') }}">Login</a></p></li> 
+                <li><a href="{{ url_for('registro') }}">Regístrate aquí</a></p></li>           
+            </ul>
+        </nav>
+    <div style="margin-top: 1%; padding-left: 250px;">
+        <img src="{{ url_for('static', filename='imagenes/paginaenconst.jpg') }}" alt="" style=" width: 80%;">
+    </div>
+    </div>
+</body>
+</html>

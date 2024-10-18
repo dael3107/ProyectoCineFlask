@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Cine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/estilos.css') }}">
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div>
+        <nav class="menu">
+            <ul>
+                <h1 style="position: center; color: aliceblue;" >El cine a tu alcance</h1>
+                <br>
+                <br>
+                <li><a href="{{ url_for('registro') }}">Regístrate aquí</a></li>
+                <li><a href="{{ url_for('nosotros') }}">Nosotros</a></li>
+            </ul>
+          
+        </nav>
+    </div>
+    <div class="login-box">
+        
+        <h1>Iniciar Sesión</h1> 
+
+        <form class="form-control" method="POST" action="acceso-login">
+            <div class="input-group">
+                <label for="correo">Correo</label>
+                <input type="text" id="correo" name="txtcorreo" required>
+            </div>
+            <div class="input-group">
+                <label for="contraseña">Contraseña</label>
+                <input type="password" id="contraseña" name="txtcontraseña" required>
+            </div>
+            <button type="submit">Entrar</button>
+        </form>
+        <div class="footer">
+            <p>¿Olvidaste tu contraseña? <a href="#">Recuperar</a></p>
+            <br>
+            <p>¿No tienes cuenta? <a href="{{ url_for('registro') }}">Regístrate aquí</a></p>
+            </p>
+        </div>
+    </div>
+
+    <div id="errorPopup" class="popup">
+        <p id="errorMessage">Usuario o contraseña incorrectos</p>
+        <button onclick="closePopup()">Cerrar</button>
+    </div>
+    <div id="overlay" class="overlay" onclick="closePopup()"></div>
+
+    <script>
+        function closePopup() {
+            document.getElementById('errorPopup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        // Mostrar popup si hay un error
+        window.onload = function() {
+            const errorMessage = '{{ error|default("") }}';  // Obtiene el mensaje de error del servidor
+            if (errorMessage) {
+                document.getElementById('errorPopup').style.display = 'block';
+                document.getElementById('overlay').style.display = 'block';
+                document.getElementById('errorMessage').innerText = errorMessage;
+            }
+        }
+    </script>
+
+
+</body>
+</html>

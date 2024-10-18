@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Cine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/estilos.css') }}">
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div>
+        <nav class="menu">
+            <ul>
+                <h1 style="position: center; color: aliceblue;" >El cine a tu alcance</h1>
+                <br>
+                <br>
+                <li><a href="{{ url_for('home') }}">Login</a></p></li> 
+                <li><a href="{{ url_for('nosotros') }}">Nosotros</a></li>
+                
+            </ul>
+        </nav>
+    </div>
+    <div class="login-box">
+        <h1>Registro</h1>
+        <form method="POST"  action="{{ url_for('registrar') }}">
+            <div class="input-group">
+                <label for="correo">Correo</label>
+                <input type="email" id="correo" name="txtcorreo" placeholder="Correo" required>
+            </div>
+            <div class="input-group">
+                <label for="contraseña">Contraseña</label>
+                <input type="password" id="contraseña" name="txtcontraseña" placeholder="contraseña" required>
+            </div>
+            <button type="submit">Registrar</button>
+        </form>
+        <div class="footer">
+            <p>¿Ya tienes cuenta? <a href="{{ url_for('home') }}">Inicia sesion aquí</a></p>
+        </div>
+    </div>
+</body>
+</html>
